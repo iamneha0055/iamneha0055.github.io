@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neha Gupta — AI Product Manager</title>
+<meta name="description" content="Neha Gupta — AI Product Manager building agentic AI products. Engineering foundation, MBA, GenAI fluency.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,400&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0e14;
+    --bg-soft:#111722;
+    --panel:#141b27;
+    --line:rgba(255,255,255,0.08);
+    --line-strong:rgba(255,255,255,0.14);
+    --text:#e7ecf3;
+    --muted:#8b97a8;
+    --faint:#5a6678;
+    --accent:#6ee7c7;
+    --accent-2:#7aa2ff;
+    --accent-warm:#f6c177;
+    --glow:rgba(110,231,199,0.14);
+    --serif:'Fraunces',Georgia,serif;
+    --sans:'Space Grotesk',system-ui,sans-serif;
+    --mono:'JetBrains Mono',monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--sans);
+    line-height:1.6;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  /* atmospheric background */
+  body::before{
+    content:"";
+    position:fixed;inset:0;z-index:-2;
+    background:
+      radial-gradient(800px 500px at 78% -5%, rgba(122,162,255,0.10), transparent 60%),
+      radial-gradient(700px 500px at 10% 18%, rgba(110,231,199,0.08), transparent 55%),
+      radial-gradient(900px 700px at 50% 110%, rgba(246,193,119,0.05), transparent 60%);
+  }
+  body::after{
+    content:"";
+    position:fixed;inset:0;z-index:-1;opacity:0.025;pointer-events:none;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  ::selection{background:var(--accent);color:#06231b}
+
+  .wrap{max-width:1080px;margin:0 auto;padding:0 28px}
+
+  /* NAV */
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    backdrop-filter:blur(14px);
+    background:rgba(10,14,20,0.6);
+    border-bottom:1px solid transparent;
+    transition:border-color .3s, background .3s;
+  }
+  nav.scrolled{border-bottom:1px solid var(--line);background:rgba(10,14,20,0.82)}
+  .nav-inner{max-width:1080px;margin:0 auto;padding:16px 28px;display:flex;justify-content:space-between;align-items:center}
+  .brand{font-family:var(--mono);font-size:.85rem;letter-spacing:.04em;color:var(--text);text-decoration:none;display:flex;align-items:center;gap:9px}
+  .brand .dot{width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px var(--glow)}
+  .nav-links{display:flex;gap:30px;list-style:none}
+  .nav-links a{color:var(--muted);text-decoration:none;font-size:.85rem;letter-spacing:.02em;transition:color .2s;position:relative}
+  .nav-links a:hover{color:var(--text)}
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:-5px;width:0;height:1px;background:var(--accent);transition:width .25s}
+  .nav-links a:hover::after{width:100%}
+  .nav-toggle{display:none;background:none;border:none;color:var(--text);font-size:1.4rem;cursor:pointer}
+  @media(max-width:680px){
+    .nav-links{position:fixed;inset:60px 0 auto 0;flex-direction:column;background:rgba(10,14,20,0.97);padding:22px 28px;gap:18px;border-bottom:1px solid var(--line);transform:translateY(-130%);transition:transform .3s;backdrop-filter:blur(14px)}
+    .nav-links.open{transform:translateY(0)}
+    .nav-toggle{display:block}
+  }
+
+  /* HERO */
+  header{min-height:100vh;display:flex;align-items:center;position:relative;padding:120px 0 80px}
+  .eyebrow{font-family:var(--mono);font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:26px;opacity:0;animation:fade .8s .1s forwards}
+  .eyebrow .pulse{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--accent);margin-right:10px;animation:blink 2.2s infinite}
+  @keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+  h1{font-family:var(--serif);font-weight:340;font-size:clamp(2.7rem,7vw,5.4rem);line-height:1.02;letter-spacing:-.015em;margin-bottom:8px}
+  h1 .line{display:block;opacity:0;transform:translateY(24px);animation:rise .9s forwards}
+  h1 .line:nth-child(1){animation-delay:.2s}
+  h1 .line:nth-child(2){animation-delay:.34s}
+  h1 em{font-style:italic;color:var(--accent)}
+  .subtitle{font-size:clamp(1.05rem,2.2vw,1.4rem);color:var(--muted);max-width:620px;margin:30px 0 0;font-weight:300;opacity:0;animation:fade 1s .6s forwards}
+  .subtitle strong{color:var(--text);font-weight:500}
+  .hero-cta{margin-top:42px;display:flex;gap:16px;flex-wrap:wrap;opacity:0;animation:fade 1s .8s forwards}
+  .btn{font-family:var(--sans);font-size:.92rem;font-weight:500;padding:13px 26px;border-radius:40px;text-decoration:none;transition:all .25s;display:inline-flex;align-items:center;gap:9px;cursor:pointer;border:1px solid transparent}
+  .btn-primary{background:var(--accent);color:#06231b}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 30px var(--glow)}
+  .btn-ghost{border-color:var(--line-strong);color:var(--text)}
+  .btn-ghost:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
+  .hero-meta{position:absolute;bottom:42px;left:28px;right:28px;max-width:1080px;margin:0 auto;display:flex;gap:38px;flex-wrap:wrap;font-family:var(--mono);font-size:.76rem;color:var(--faint);letter-spacing:.04em;opacity:0;animation:fade 1s 1s forwards}
+  .hero-meta span{display:flex;align-items:center;gap:8px}
+  .hero-meta b{color:var(--muted);font-weight:500}
+
+  @keyframes rise{to{opacity:1;transform:translateY(0)}}
+  @keyframes fade{to{opacity:1}}
+
+  /* SECTIONS */
+  section{padding:100px 0;position:relative}
+  .sec-head{display:flex;align-items:baseline;gap:18px;margin-bottom:56px}
+  .sec-num{font-family:var(--mono);font-size:.8rem;color:var(--accent);letter-spacing:.1em}
+  .sec-title{font-family:var(--serif);font-weight:360;font-size:clamp(1.8rem,4vw,2.8rem);letter-spacing:-.01em}
+  .reveal{opacity:0;transform:translateY(30px);transition:opacity .7s,transform .7s}
+  .reveal.in{opacity:1;transform:translateY(0)}
+
+  /* ABOUT */
+  .about-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:60px;align-items:start}
+  @media(max-width:760px){.about-grid{grid-template-columns:1fr;gap:40px}}
+  .about-text p{font-size:1.12rem;color:var(--muted);margin-bottom:22px;font-weight:300;line-height:1.75}
+  .about-text strong{color:var(--text);font-weight:500}
+  .about-card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:30px;position:relative;overflow:hidden}
+  .about-card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent-2))}
+  .about-card h4{font-family:var(--mono);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin-bottom:18px}
+  .fact{display:flex;justify-content:space-between;padding:13px 0;border-bottom:1px solid var(--line);font-size:.92rem}
+  .fact:last-child{border-bottom:none}
+  .fact .k{color:var(--muted)}
+  .fact .v{color:var(--text);font-weight:500;text-align:right}
+
+  /* SKILLS */
+  .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px}
+  .skill-cat{background:var(--bg-soft);border:1px solid var(--line);border-radius:16px;padding:26px;transition:border-color .3s,transform .3s}
+  .skill-cat:hover{border-color:var(--line-strong);transform:translateY(-4px)}
+  .skill-cat h3{font-family:var(--sans);font-size:.95rem;font-weight:600;margin-bottom:16px;display:flex;align-items:center;gap:10px;color:var(--text)}
+  .skill-cat h3 .ic{font-family:var(--mono);color:var(--accent);font-size:.85rem}
+  .tags{display:flex;flex-wrap:wrap;gap:8px}
+  .tag{font-family:var(--mono);font-size:.74rem;padding:6px 11px;border-radius:7px;background:rgba(255,255,255,0.04);border:1px solid var(--line);color:var(--muted);transition:all .2s}
+  .tag:hover{color:var(--accent);border-color:var(--accent)}
+
+  /* EXPERIENCE */
+  .timeline{position:relative;padding-left:34px}
+  .timeline::before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:1px;background:linear-gradient(var(--accent),var(--line) 30%,var(--line))}
+  .job{position:relative;padding-bottom:54px}
+  .job:last-child{padding-bottom:0}
+  .job::before{content:"";position:absolute;left:-31px;top:6px;width:15px;height:15px;border-radius:50%;background:var(--bg);border:2px solid var(--accent);box-shadow:0 0 0 4px rgba(110,231,199,0.08)}
+  .job-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;align-items:baseline;margin-bottom:6px}
+  .job-role{font-family:var(--serif);font-size:1.4rem;font-weight:400;color:var(--text)}
+  .job-co{color:var(--accent);font-weight:500}
+  .job-date{font-family:var(--mono);font-size:.78rem;color:var(--faint);letter-spacing:.03em}
+  .job-bullets{list-style:none;margin-top:16px;display:flex;flex-direction:column;gap:11px}
+  .job-bullets li{position:relative;padding-left:22px;color:var(--muted);font-weight:300;font-size:1rem;line-height:1.6}
+  .job-bullets li::before{content:"▹";position:absolute;left:0;color:var(--accent);font-size:.9rem}
+  .job-bullets strong{color:var(--text);font-weight:600}
+
+  /* HIGHLIGHTS / ACHIEVEMENTS */
+  .ach-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+  .ach{background:linear-gradient(160deg,var(--panel),var(--bg-soft));border:1px solid var(--line);border-radius:16px;padding:28px;position:relative;overflow:hidden;transition:transform .3s,border-color .3s}
+  .ach:hover{transform:translateY(-5px);border-color:var(--accent)}
+  .ach .big{font-family:var(--serif);font-size:2.6rem;font-weight:400;background:linear-gradient(120deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;line-height:1;margin-bottom:12px}
+  .ach p{color:var(--muted);font-size:.96rem;font-weight:300}
+  .ach p strong{color:var(--text);font-weight:500}
+
+  /* EDUCATION */
+  .edu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+  .edu{background:var(--bg-soft);border:1px solid var(--line);border-radius:14px;padding:24px;transition:border-color .3s}
+  .edu:hover{border-color:var(--line-strong)}
+  .edu .deg{font-family:var(--serif);font-size:1.25rem;color:var(--text);margin-bottom:6px}
+  .edu .inst{color:var(--muted);font-size:.94rem;font-weight:300;margin-bottom:14px}
+  .edu .row{display:flex;justify-content:space-between;font-family:var(--mono);font-size:.78rem;color:var(--faint)}
+  .edu .row .score{color:var(--accent)}
+
+  /* CONTACT */
+  .contact{text-align:center;padding-bottom:60px}
+  .contact .sec-head{justify-content:center}
+  .contact h2{font-family:var(--serif);font-weight:340;font-size:clamp(2.2rem,6vw,4rem);letter-spacing:-.02em;margin-bottom:24px;line-height:1.08}
+  .contact h2 em{font-style:italic;color:var(--accent)}
+  .contact p{color:var(--muted);max-width:520px;margin:0 auto 40px;font-weight:300;font-size:1.1rem}
+  .contact-links{display:flex;gap:18px;justify-content:center;flex-wrap:wrap}
+  .clink{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;border:1px solid var(--line-strong);border-radius:40px;color:var(--text);text-decoration:none;font-size:.94rem;transition:all .25s;font-family:var(--sans)}
+  .clink:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-3px);box-shadow:0 10px 30px var(--glow)}
+  .clink svg{width:18px;height:18px;fill:currentColor}
+
+  footer{border-top:1px solid var(--line);padding:34px 0;text-align:center}
+  footer p{font-family:var(--mono);font-size:.76rem;color:var(--faint);letter-spacing:.03em}
+
+  /* monogram for hero */
+  .mono-badge{position:absolute;top:50%;right:0;transform:translateY(-50%);font-family:var(--serif);font-size:clamp(8rem,22vw,18rem);font-weight:300;color:rgba(255,255,255,0.022);line-height:1;pointer-events:none;user-select:none;z-index:-1}
+  @media(max-width:760px){.mono-badge{display:none}}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#top" class="brand"><span class="dot"></span>NEHA GUPTA</a>
+    <button class="nav-toggle" id="navToggle" aria-label="menu">☰</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#highlights">Highlights</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header id="top">
+  <div class="mono-badge">NG</div>
+  <div class="wrap">
+    <div class="eyebrow"><span class="pulse"></span>AI Product Manager · Agentic AI</div>
+    <h1>
+      <span class="line">Building AI that</span>
+      <span class="line">works <em>autonomously.</em></span>
+    </h1>
+    <p class="subtitle">I'm <strong>Neha Gupta</strong> — an AI Product Manager with an engineering foundation and an MBA, shipping agentic AI products that turn complex enterprise workflows into measurable outcomes.</p>
+    <div class="hero-cta">
+      <a href="#experience" class="btn btn-primary">View my work →</a>
+      <a href="#contact" class="btn btn-ghost">Get in touch</a>
+    </div>
+  </div>
+  <div class="hero-meta wrap" style="position:absolute;left:50%;transform:translateX(-50%)">
+    <span><b>Now</b> · AI PM @ Supervity</span>
+    <span><b>Before</b> · Sr. Software Engineer @ Ford</span>
+    <span><b>Edu</b> · MBA, BITSoM · B.Tech, VIT</span>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-num">01</span>
+      <h2 class="sec-title">About</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>I sit at the intersection of <strong>deep technical depth</strong> and <strong>product strategy</strong>. After four years engineering cloud-native platforms at Ford, I moved into product — pairing hands-on fluency with APIs, cloud, and CI/CD with the discovery, roadmapping, and prioritization that turn ideas into shipped products.</p>
+        <p>Today at <strong>Supervity</strong>, I own the strategy and roadmap for agentic AI "Auto Agents &amp; Apps" — role-based <strong>AI Employees</strong> that automate enterprise workflows end-to-end across Finance, IT, and Customer Experience, with RAG retrieval, agentic OCR, and human-in-command governance.</p>
+        <p>I'm fluent in the modern GenAI stack — <strong>LLMs, RAG, prompt engineering, evaluation &amp; guardrails</strong> — and I care most about translating complex AI capabilities into outcomes enterprises can actually trust and adopt.</p>
+      </div>
+      <aside class="about-card reveal">
+        <h4>At a glance</h4>
+        <div class="fact"><span class="k">Role</span><span class="v">AI Product Manager</span></div>
+        <div class="fact"><span class="k">Company</span><span class="v">Supervity</span></div>
+        <div class="fact"><span class="k">Based in</span><span class="v">India</span></div>
+        <div class="fact"><span class="k">Focus</span><span class="v">Agentic AI · GenAI</span></div>
+        <div class="fact"><span class="k">Background</span><span class="v">Engineering + MBA</span></div>
+        <div class="fact"><span class="k">Domains</span><span class="v">Enterprise SaaS</span></div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-num">02</span>
+      <h2 class="sec-title">What I work with</h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-cat reveal">
+        <h3><span class="ic">{ }</span> AI / ML</h3>
+        <div class="tags">
+          <span class="tag">LLMs</span><span class="tag">RAG</span><span class="tag">Prompt Engineering</span><span class="tag">GenAI</span><span class="tag">Agentic Workflows</span><span class="tag">Model Evaluation</span><span class="tag">Guardrails</span><span class="tag">OpenAI APIs</span>
+        </div>
+      </div>
+      <div class="skill-cat reveal">
+        <h3><span class="ic">▤</span> Product</h3>
+        <div class="tags">
+          <span class="tag">Strategy &amp; Roadmapping</span><span class="tag">Discovery</span><span class="tag">PRDs</span><span class="tag">RICE/ICE</span><span class="tag">A/B Testing</span><span class="tag">Personas</span><span class="tag">Agile/Scrum</span><span class="tag">KPIs &amp; Metrics</span>
+        </div>
+      </div>
+      <div class="skill-cat reveal">
+        <h3><span class="ic">&lt;/&gt;</span> Technical</h3>
+        <div class="tags">
+          <span class="tag">REST APIs</span><span class="tag">SQL</span><span class="tag">Python</span><span class="tag">Java</span><span class="tag">Spring</span><span class="tag">Angular</span><span class="tag">GCP / AWS</span><span class="tag">CI/CD</span><span class="tag">Power BI</span><span class="tag">Qlik Sense</span><span class="tag">Figma</span>
+        </div>
+      </div>
+      <div class="skill-cat reveal">
+        <h3><span class="ic">◇</span> Domain</h3>
+        <div class="tags">
+          <span class="tag">Enterprise SaaS</span><span class="tag">Process Automation</span><span class="tag">Digital Marketing</span><span class="tag">Cloud Migration</span><span class="tag">Data Visualization</span><span class="tag">Stakeholder Mgmt</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-num">03</span>
+      <h2 class="sec-title">Experience</h2>
+    </div>
+    <div class="timeline">
+      <div class="job reveal">
+        <div class="job-top">
+          <div class="job-role"><span class="job-co">Supervity</span> — AI Product Manager</div>
+          <div class="job-date">2026 — Present</div>
+        </div>
+        <ul class="job-bullets">
+          <li>Own product strategy and roadmap for agentic AI <strong>"Auto Agents / Apps"</strong> that automate enterprise workflows end-to-end across Finance, IT, and Customer Experience.</li>
+          <li>Define requirements for multi-agent orchestration on role-based AI Employees with RAG retrieval, agentic OCR, and confidence-based escalation — reducing manual effort by <strong>~95%</strong> for enterprise users.</li>
+          <li>Specify the <strong>human-in-command governance</strong> layer (plain-English AI policies, audit trails) enabling SOC2/GDPR-aligned oversight and faster enterprise buy-in.</li>
+          <li>Establish AI product KPIs (task-completion, escalation rate, extraction accuracy, adoption) and run experiments to improve agent reliability and reduce hallucination.</li>
+          <li>Partner with engineering, design, and customer success to take agentic features from discovery to production.</li>
+        </ul>
+      </div>
+      <div class="job reveal">
+        <div class="job-top">
+          <div class="job-role"><span class="job-co">Shriram AMC</span> — Product / Digital Analytics &amp; Marketing Intern</div>
+          <div class="job-date">Apr 2025 — May 2025</div>
+        </div>
+        <ul class="job-bullets">
+          <li>Projected <strong>~30% faster fund reviews</strong> by deploying GenAI summarization &amp; tagging to extract insights from compliance documents.</li>
+          <li>Drove <strong>40% higher conversion</strong> via 35+ automated drip sequences with UTM-based optimization, and <strong>18.8% CTR</strong> across 30+ persona-based messages to 8K+ SEBI intermediaries.</li>
+          <li>Surfaced 25+ qualified leads and lifted campaign engagement <strong>2.5×</strong> by building a lead-scoring model in Netcore.</li>
+          <li>Cut manual effort <strong>75%</strong> and accelerated compliance <strong>4×</strong> by automating 1000+ SEBI reports/month on low-cost AWS; built a Power BI dashboard on AMFI data guiding AUM-growth decisions.</li>
+        </ul>
+      </div>
+      <div class="job reveal">
+        <div class="job-top">
+          <div class="job-role"><span class="job-co">Ford Motor</span> — Senior Software Engineer</div>
+          <div class="job-date">Jul 2020 — May 2024</div>
+        </div>
+        <ul class="job-bullets">
+          <li>Boosted operational efficiency <strong>50%</strong> by re-engineering a legacy system to a cloud-native (PCF) platform; built APIs that cut manual effort <strong>45% (220+ hrs/month)</strong> and sped data refresh from overnight to 15 minutes.</li>
+          <li>Designed <strong>10+ analytical dashboards</strong> visualizing real-time updates on 50K+ orders across 243 EU vehicle markets.</li>
+          <li>Led a team of 5 to reduce latency <strong>60%</strong> via multi-region cloud migration; onboarded 4 hires and mentored 11 developers.</li>
+          <li>Drove <strong>~₹50L annual savings</strong> through pay-as-you-go cloud adoption and secured <strong>$240K savings</strong> by mitigating uptime &amp; security risks; accelerated deployments <strong>67%</strong> via CI/CD automation.</li>
+          <li>Recognized with the <strong>APA Award</strong> for leading cloud migration; fast-tracked to "High Tech High Demand" in 2 years (top ~5% of new hires).</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="highlights">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-num">04</span>
+      <h2 class="sec-title">Highlights</h2>
+    </div>
+    <div class="ach-grid">
+      <div class="ach reveal">
+        <div class="big">#1</div>
+        <p><strong>1st Rank of 1700+ teams</strong> — Samagra case competition at IIM-K (PPI holder); designed a user-adoption strategy for an edtech app.</p>
+      </div>
+      <div class="ach reveal">
+        <div class="big">38<span style="font-size:1.2rem;color:var(--muted)">/2500+</span></div>
+        <p><strong>National Finalist</strong> — crafted a market-entry strategy for Ashok Leyland Hi-Lift trucks.</p>
+      </div>
+      <div class="ach reveal">
+        <div class="big">📄</div>
+        <p><strong>Springer publication</strong> — a blink-detection system using computer vision for non-verbal communication by paralysis patients.</p>
+      </div>
+      <div class="ach reveal">
+        <div class="big">🏅</div>
+        <p><strong>Tata Steel Millennium Scholarship</strong> — academic merit award from a pool of ~80,000+ employees' children.</p>
+      </div>
+    </div>
+
+    <div class="sec-head reveal" style="margin-top:80px">
+      <span class="sec-num">05</span>
+      <h2 class="sec-title">Education</h2>
+    </div>
+    <div class="edu-grid">
+      <div class="edu reveal">
+        <div class="deg">MBA</div>
+        <div class="inst">BITS School of Management (BITSoM)</div>
+        <div class="row"><span>2024 — 2026</span><span class="score">3.14 / 4</span></div>
+      </div>
+      <div class="edu reveal">
+        <div class="deg">B.Tech, ECE</div>
+        <div class="inst">Vellore Institute of Technology, Chennai</div>
+        <div class="row"><span>2016 — 2020</span><span class="score">8.52 / 10</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-num">06</span>
+      <h2 class="sec-title">Contact</h2>
+    </div>
+    <h2 class="reveal">Let's build something <em>worth shipping.</em></h2>
+    <p class="reveal">Open to conversations about AI product, agentic systems, and enterprise GenAI. Reach out — I'd love to hear from you.</p>
+    <div class="contact-links reveal">
+      <a class="clink" href="mailto:nehajmsr98@gmail.com">
+        <svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5z"/></svg>
+        nehajmsr98@gmail.com
+      </a>
+      <a class="clink" href="https://www.linkedin.com/in/iamneha05" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zM8.34 17V9.93H6V17h2.34zM7.17 8.9a1.36 1.36 0 1 0 0-2.72 1.36 1.36 0 0 0 0 2.72zM18 17v-3.87c0-2.07-1.1-3.03-2.58-3.03a2.23 2.23 0 0 0-2.02 1.11V9.93h-2.34V17h2.34v-3.92c0-1.03.2-2.03 1.47-2.03 1.26 0 1.28 1.18 1.28 2.1V17H18z"/></svg>
+        linkedin.com/in/iamneha05
+      </a>
+      <a class="clink" href="tel:+917397419402">
+        <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.15 15.15 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24 11.36 11.36 0 0 0 3.57.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z"/></svg>
+        +91 73974 19402
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>© <span id="yr"></span> Neha Gupta · Built with care · AI Product Manager</p>
+  </div>
+</footer>
+
+<script>
+  // nav scroll state
+  const nav=document.getElementById('nav');
+  window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>30));
+  // mobile menu
+  const t=document.getElementById('navToggle'),l=document.getElementById('navLinks');
+  t.addEventListener('click',()=>l.classList.toggle('open'));
+  l.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>l.classList.remove('open')));
+  // reveal on scroll
+  const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:0.12});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%4*0.07)+'s';io.observe(el)});
+  // year
+  document.getElementById('yr').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
